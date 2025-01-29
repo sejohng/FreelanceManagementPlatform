@@ -1,0 +1,418 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "disputeId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "milestoneIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "DisputeCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "disputeId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "milestoneApproved",
+						"type": "bool"
+					}
+				],
+				"name": "DisputeResolved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "milestoneIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "MilestoneApproved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "milestoneIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "MilestoneSubmitted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "client",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "freelancer",
+						"type": "address"
+					}
+				],
+				"name": "ProjectCreated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "milestoneIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "approveMilestone",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "freelancer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "milestones",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "descriptions",
+						"type": "string[]"
+					}
+				],
+				"name": "createProject",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "depositToEscrow",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "disputeCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "milestoneIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "disputeMilestone",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "disputes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "milestoneIndex",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votesForCompletion",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votesAgainstCompletion",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "resolved",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					}
+				],
+				"name": "finalizeProject",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					}
+				],
+				"name": "getProjectDetails",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "freelancer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "milestones",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "bool[]",
+						"name": "completedMilestones",
+						"type": "bool[]"
+					},
+					{
+						"internalType": "bool",
+						"name": "projectComplete",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "projectCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "projects",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "client",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "freelancer",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "projectComplete",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "escrowedAmount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "milestoneIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "submitMilestone",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "disputeId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "voteForCompletion",
+						"type": "bool"
+					}
+				],
+				"name": "voteOnDispute",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/FreelanceManagementPlatform.sol": "FreelanceManagementPlatform"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/FreelanceManagementPlatform.sol": {
+			"keccak256": "0xf3f009f3d81ceef6a1985c93f352ee5261da95a7fa8db202ee5040b1e79fc065",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3f348a45be4e654c222e961502db20cd59d9cb3b084865bc55df30d06f5609fa",
+				"dweb:/ipfs/Qmf1HSkWXiycLfg7vX2sFP6gAKSznHqDEkvj7nevob5gPR"
+			]
+		}
+	},
+	"version": 1
+}
